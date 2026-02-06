@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupTabs();
   setupScrollAnimations();
   setupModal();
+  setupMobileMenu();
 });
 
 function setupTabs() {
@@ -51,6 +52,23 @@ function setupScrollAnimations() {
   sections.forEach(section => {
     section.classList.add('section'); // Ensure they have base class if missed
     observer.observe(section);
+  });
+}
+
+function setupMobileMenu() {
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+    });
   });
 }
 
