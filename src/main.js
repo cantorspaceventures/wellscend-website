@@ -48,9 +48,8 @@ function setupScrollAnimations() {
     });
   }, observerOptions);
 
-  const sections = document.querySelectorAll('.section, .hero-content');
+  const sections = document.querySelectorAll('.section, .hero-content, .reveal');
   sections.forEach(section => {
-    section.classList.add('section'); // Ensure they have base class if missed
     observer.observe(section);
   });
 }
